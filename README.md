@@ -1,5 +1,4 @@
-# FTGP2024
-# Hardhat Boilerplate
+# FTGP2024 Group Project Coursework - weigh 65% of the unit mark!
 
 This repository contains the starting point of our FTGP coursework - an Ethereum smart contract development.
 
