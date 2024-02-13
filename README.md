@@ -8,7 +8,7 @@ The first things you need to do are cloning this repository and installing its
 dependencies:
 
 ```sh
-git clone https://github.com/HjzQAQ/FTGP2024
+git clone https://github.com/HjzQAQ/FTGP2024.git
 cd FTGP2024
 npm install
 ```
