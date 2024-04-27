@@ -1,91 +1,61 @@
-# FTGP2024 Group Project Coursework - weigh 65% of the unit mark!
+# Loan Lending Decentralized Application
 
-This repository contains the starting point of our FTGP coursework - an Ethereum smart contract development.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Hardhat](https://hardhat.org/).
 
-## Quick start
+## Features and Interfaces
 
-The first things you need to do are cloning this repository and installing its
-dependencies:
+### LoginPage
 
-```sh
-git clone https://github.com/HjzQAQ/FTGP2024.git
-cd FTGP2024
-npm install
-```
+![LoginPage](/src/assets/Loginpage.png)
 
-Once installed, let's run Hardhat's testing network:
+### HomePage
 
-```sh
-npx hardhat node
-```
+![HomePage](/src/assets/HomePage.png)
 
-Then, on a new terminal, go to the repository's root folder and run this to
-deploy your contract:
+### LendingPage
 
-```sh
-npx hardhat run scripts/deploy.js --network localhost
-```
+![LendingPage](</src/assets/LendingPage%20(1).png>)
 
-Finally, we can run the frontend with:
+### MortgageLendingPage
 
-```sh
-cd frontend
-npm install
-npm start
-```
+![MortgageLendingPage](/src/assets/2022-06-06.png)
 
-Open [http://localhost:3000/](http://localhost:3000/) to see your Dapp. You will
-need to have [Metamask](https://metamask.io) installed and listening to (can be achieved by adding a new network in MetaMask)
-`localhost 8545`.
+### BorrowingPage
 
-## User Guide
+![BorrowingPage](/src/assets/BorrowPage.png)
 
-You can find detailed instructions on using this repository and many tips in [its documentation](https://hardhat.org/tutorial).
+### PayOutPage
 
-- [Writing and compiling contracts](https://hardhat.org/tutorial/writing-and-compiling-contracts/)
-- [Setting up the environment](https://hardhat.org/tutorial/setting-up-the-environment/)
-- [Testing Contracts](https://hardhat.org/tutorial/testing-contracts/)
-- [Setting up your wallet](https://hardhat.org/tutorial/boilerplate-project#how-to-use-it)
-- [Hardhat's full documentation](https://hardhat.org/docs/)
+![PayOutPage](/src/assets/PayoutPage.png)
 
-For a complete introduction to Hardhat, refer to [this guide](https://hardhat.org/getting-started/#overview).
+## Tech Stack/ Tooling
 
-## What's Included?
+JavaScript(React JS), Redux Toolkit, Material UI, Blockchain, Hardhat, Solidity, ChainLink, IPFS
 
-This repository uses our recommended hardhat setup, by using our [`@nomicfoundation/hardhat-toolbox`](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox). When you use this plugin, you'll be able to:
+## Project Scripts
 
-- Deploy and interact with your contracts using [ethers.js](https://docs.ethers.io/v5/) and the [`hardhat-ethers`](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-ethers) plugin.
-- Test your contracts with [Mocha](https://mochajs.org/), [Chai](https://chaijs.com/) and our own [Hardhat Chai Matchers](https://hardhat.org/hardhat-chai-matchers) plugin.
-- Interact with Hardhat Network with our [Hardhat Network Helpers](https://hardhat.org/hardhat-network-helpers).
-- Verify the source code of your contracts with the [hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan) plugin.
-- Get metrics on the gas used by your contracts with the [hardhat-gas-reporter](https://github.com/cgewecke/hardhat-gas-reporter) plugin.
-- Measure your tests coverage with [solidity-coverage](https://github.com/sc-forks/solidity-coverage).
+In the project directory, you can run the following:
 
-This project also includes [a sample frontend/Dapp](./frontend), which uses [Create React App](https://github.com/facebook/create-react-app).
+### `npm start`
 
-## Troubleshooting
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- `Invalid nonce` errors: if you are seeing this error on the `npx hardhat node`
-  console, try resetting your Metamask account. This will reset the account's
-  transaction history and also the nonce. Open Metamask, click on your account
-  followed by `Settings > Advanced > Clear activity tab data`.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Setting up your editor
+### `npx hardhat compile`
 
-[Hardhat for Visual Studio Code](https://hardhat.org/hardhat-vscode) is the official Hardhat extension that adds advanced support for Solidity to VSCode. If you use Visual Studio Code, give it a try!
+Compiles the solidity code.
 
-## Getting help and updates
+### `npx hardhat run scripts/deploy.js --network rinkeby`
 
-## Things to note down below this point....
+npx hardhat run scripts/deploy.js --network sepolia
 
-...
+Deploys the smart contract to the Rinkeby Test Network
 
+## Point to Note
 
-...
+1. Create a .env file that will store your private key and your Alchemy api key url.
 
-
-...
-
-
-
-**Happy _building_!**
+2. Copy your ABI file and your deployed smart contract address and in the index.js file on the frontend.
