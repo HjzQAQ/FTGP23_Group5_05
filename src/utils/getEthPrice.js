@@ -57,7 +57,7 @@ export async function getETHPrice() {
     }
   ];
   // The address of the contract which will provide the price of ETH on Kovan
-  const addr = '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e';
+  const addr = '0x694AA1769357215DE4FAC081bf1f309aDC325306';
   // We create an instance of the contract which we can interact with
   const priceFeed = new ethers.Contract(addr, aggregatorV3InterfaceABI, provider);
   // We get the data from the last round of the contract

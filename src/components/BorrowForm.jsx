@@ -132,7 +132,7 @@ const BorrowForm = () => {
           Request crypto loan on Ethereum
         </Typography>
         <Typography variant="h5" gutterBottom align="left" sx={{ color: '#240b36', marginBottom: 4 }}>
-          The max value is {maxValue};
+          The max value is {maxValue}
         </Typography>
         <form
           style={{
@@ -148,7 +148,7 @@ const BorrowForm = () => {
             required
             type="number"
             id="amount"
-            label="Amount to borrow in ETH"
+            label="Amount to borrow in USD"
             color="primary"
             focused
             name="Amount"
@@ -159,7 +159,7 @@ const BorrowForm = () => {
             onChange={handleInputChange}
             fullWidth
             InputProps={{
-              endAdornment: <InputAdornment position="start">ETH</InputAdornment>,
+              endAdornment: <InputAdornment position="start">USD</InputAdornment>,
               inputProps: { min: 0.0, max: maxValue, step: '0.01' }
             }}
             sx={{ marginBottom: 3 }}
@@ -196,12 +196,10 @@ const BorrowForm = () => {
                 label="ETH Collateral"
                 color="primary"
                 value={collateral}
-                onChange={e => {
-                  setCollateral(e.target.value);
-                }}
+                onChange={handleInputChange}
                 InputProps={{
                   endAdornment: <InputAdornment position="start">ETH</InputAdornment>,
-                  inputProps: { min: 0.0, step: '0.01' }
+                  inputProps: { min: 0.0, max: maxValue, step: '0.01' }
                 }}
                 focused
               />
