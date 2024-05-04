@@ -156,7 +156,9 @@ const BorrowForm = () => {
             // onChange={e => {
             //   setAmount(e.target.value);
             // }}
-            onChange={handleInputChange}
+            onChange={e => {
+              setAmount(e.target.value);
+            }}
             fullWidth
             InputProps={{
               endAdornment: <InputAdornment position="start">USD</InputAdornment>,
@@ -196,7 +198,9 @@ const BorrowForm = () => {
                 label="ETH Collateral"
                 color="primary"
                 value={collateral}
-                onChange={handleInputChange}
+                onChange={e => {
+                  setCollateral(e.target.value);
+                }}
                 InputProps={{
                   endAdornment: <InputAdornment position="start">ETH</InputAdornment>,
                   inputProps: { min: 0.0, max: maxValue, step: '0.01' }
