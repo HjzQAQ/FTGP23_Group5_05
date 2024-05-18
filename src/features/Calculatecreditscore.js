@@ -1,23 +1,26 @@
 const express = require('express');
 const app = express();
-const axios = require('axios'); // Import Axios
+const axios = require('axios');
 const fs = require('fs');
 
 app.use(express.json());
 
+// Input API key and API URL
 const ETHERSCAN_API_KEY = 'JIZZMGHYYD46MICJIFYVZNXRA5UKBMHDP5';
-const ETHERSCAN_API_URL = 'https://api-sepolia.etherscan.io/api'; //sepolia testnet api
+const ETHERSCAN_API_URL = 'https://api-sepolia.etherscan.io/api';
 
+// Convert Wei to Ether 
 function convertWeiToEther(weiValue) {
   return parseFloat(weiValue) / 1e18;
 }
-
+// Calculate credit score based on transaction history 
 function calculateCreditScore(totalTransactions, averageAmount) {
-  const score =
-    300 + Math.min(Math.log10(1 + totalTransactions) * 100, 300) + Math.min(Math.log10(1 + averageAmount) * 1000, 250);
+  const score = 300 
+                + Math.min(Math.log10(1 + totalTransactions) * 100, 300) 
+                + Math.min(Math.log10(1 + averageAmount) * 1000, 250);
   return score;
 }
-
+// Calculate the maximum loan amount based on credit score 
 function calculateMaxLoanAmount(score) {
   if (score < 580) {
     return 0.5;
@@ -32,7 +35,7 @@ function calculateMaxLoanAmount(score) {
   }
   return 5.0;
 }
-
+// Get transaction history from Etherscan
 async function getTransactionHistory(address) {
   try {
     const params = new URLSearchParams({
@@ -44,12 +47,12 @@ async function getTransactionHistory(address) {
       sort: 'asc',
       apikey: ETHERSCAN_API_KEY
     });
-
+    // Fetch transaction list from Etherscan
     const response = await axios.get(`${ETHERSCAN_API_URL}?${params.toString()}`);
     if (!Array.isArray(response.data.result)) {
       throw new Error('The response from the Etherscan API is not an array');
     }
-
+    // Convert transaction values to Ether and prepare transaction summary
     const transactions = response.data.result.map(tx => ({
       valueInEther: convertWeiToEther(tx.value)
     }));
@@ -67,9 +70,7 @@ async function getTransactionHistory(address) {
     };
 
     fs.writeFileSync('transaction_summary.json', JSON.stringify(resultData, null, 2), 'utf-8');
-    console.log(
-      'Transaction summary with credit score and max loan amount has been written to transaction_summary.json'
-    );
+    console.log('Transaction summary with credit score and max loan amount has been written to transaction_summary.json');
 
     return resultData;
   } catch (error) {
@@ -77,8 +78,18 @@ async function getTransactionHistory(address) {
     return null;
   }
 }
-
-const address = '0xe276bc378a527a8792b353cdca5b5e53263dfb9e'; // Wrap address in quotes
-getTransactionHistory(address)
-  .then(summary => console.log(summary))
-  .catch(error => console.error(error));
+// Endpoint to handle POST request for transaction history
+app.post('/get-transaction-history', async (req, res) => {
+  const address = req.body.address;
+  try {
+    const summary = await getTransactionHistory(address);
+    res.json(summary);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+// Start the server on port 3000
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});   
