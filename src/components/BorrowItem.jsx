@@ -1,6 +1,7 @@
 import React from 'react';
 import { ethers } from 'ethers';
 import { LOANLENDING_CONTRACT_ADDRESS, abi } from '../constants';
+import axios from 'axios';
 import {
   Box,
   Button,
@@ -71,16 +72,43 @@ const BorrowItem = () => {
       console.error(err);
     }
   };
+  // const onChange = async e => {
+  //   const file = e.target.files[0];
+  //   try {
+  //     const added = await client.add(file);
+  //     const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+  //     updateFileUrl(url);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
   const onChange = async e => {
     const file = e.target.files[0];
     try {
-      const added = await client.add(file);
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-      updateFileUrl(url);
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const pinataApiKey = 'b8c2f1ed011f067912cb';
+      const pinataSecretApiKey = 'df147a43688a9a392b59e6a2bb880d0b631d3f9ab1f9155decc09607c8b323ca';
+      const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
+
+      const response = await axios.post(url, formData, {
+        maxBodyLength: 'Infinity', // 这是处理大文件的配置
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+          pinata_api_key: pinataApiKey,
+          pinata_secret_api_key: pinataSecretApiKey
+        }
+      });
+      if (response.status === 200) {
+        const ipfsUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+        updateFileUrl(ipfsUrl);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Error uploading file to Pinata:', err);
     }
   };
+
   return (
     <Container
       maxWidth="lg"
