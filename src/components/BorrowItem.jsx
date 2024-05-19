@@ -1,6 +1,7 @@
 import React from 'react';
 import { ethers } from 'ethers';
 import { LOANLENDING_CONTRACT_ADDRESS, abi } from '../constants';
+import axios from 'axios';
 import {
   Box,
   Button,
@@ -71,16 +72,43 @@ const BorrowItem = () => {
       console.error(err);
     }
   };
+  // const onChange = async e => {
+  //   const file = e.target.files[0];
+  //   try {
+  //     const added = await client.add(file);
+  //     const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+  //     updateFileUrl(url);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
   const onChange = async e => {
     const file = e.target.files[0];
     try {
-      const added = await client.add(file);
-      const url = `https://ipfs.infura.io/ipfs/${added.path}`;
-      updateFileUrl(url);
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const pinataApiKey = '7ad02b6efa42d67175e3';
+      const pinataSecretApiKey = '73427070e45db250c81b38bdfcd10cfe2626993ee6981526a3bd94a6b4b0c5b9';
+      const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
+
+      const response = await axios.post(url, formData, {
+        maxBodyLength: 'Infinity', // 这是处理大文件的配置
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+          pinata_api_key: pinataApiKey,
+          pinata_secret_api_key: pinataSecretApiKey
+        }
+      });
+      if (response.status === 200) {
+        const ipfsUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+        updateFileUrl(ipfsUrl);
+      }
     } catch (err) {
-      console.error(err);
+      console.error('Error uploading file to Pinata:', err);
     }
   };
+
   return (
     <Container
       maxWidth="lg"
@@ -88,7 +116,7 @@ const BorrowItem = () => {
     >
       <Box sx={{ width: '100%', marginTop: 5 }}>
         <Typography variant="h3" gutterBottom align="center" sx={{ color: '#240b36', marginBottom: 4 }}>
-          Borrow an item on Ethereum
+          Share Talk release
         </Typography>
         <form
           style={{
@@ -103,12 +131,10 @@ const BorrowItem = () => {
           <FormControl fullWidth sx={{ marginBottom: 3 }} color="primary" focused>
             <InputLabel id="docket">Category</InputLabel>
             <Select sx={{ width: '100%' }} labelId="category" label="Category" value={category} onChange={handleChange}>
-              <MenuItem value="Mortgage">Mortgage</MenuItem>
-              <MenuItem value="Electronics">Electronics</MenuItem>
-              <MenuItem value="Automotive">Automotive</MenuItem>
-              <MenuItem value="Gardening">Gardening</MenuItem>
-              <MenuItem value="Country Financial Aid">Country Financial Aid</MenuItem>
-              <MenuItem value="Household">Household</MenuItem>
+              <MenuItem value="Sharetalk">Phone</MenuItem>
+              <MenuItem value="Sharetalk">House</MenuItem>
+              <MenuItem value="Sharetalk">Book</MenuItem>
+              <MenuItem value="Sharetalk">Camera</MenuItem>
             </Select>
           </FormControl>
           <TextField
@@ -173,7 +199,7 @@ const BorrowItem = () => {
             required
             type="number"
             id="standard-multiline-static"
-            label="ETH Collateral"
+            label="Pay for the talk"
             color="primary"
             value={collateral}
             onChange={e => {

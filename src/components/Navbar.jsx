@@ -69,9 +69,9 @@ const Navbar = () => {
               <NavLink to="/payoff" style={navLinkStyles}>
                 PayOff
               </NavLink>
-              <NavLink to="/new" style={navLinkStyles}>
+              {/* <NavLink to="/new" style={navLinkStyles}>
                 New
-              </NavLink>
+              </NavLink> */}
               {/*<NavLink to="/stake" style={navLinkStyles}>
                 Stake
               </NavLink>

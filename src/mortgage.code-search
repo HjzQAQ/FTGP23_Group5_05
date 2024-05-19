@@ -1,0 +1,38 @@
+# Query: mortgage
+# Flags: CaseSensitive WordMatch
+# ContextLines: 1
+
+12 results - 3 files
+
+src/App.js:
+  27            <Route path="crypto" element={<LendingTable />} />
+  28:           <Route path="sharetalk" element={<Sharetalk />} />
+  29            <Route path="electronics" element={<Electronics />} />
+
+src/components/Mortgage.jsx:
+   92        {allMortgageData.length != 0 ? (
+   93:         allMortgageData.map(sharetalk => (
+   94            <Grid
+
+   99              lg={6}
+  100:             key={sharetalk.address}
+  101              sx={
+
+  107              <Item
+  108:               img={sharetalk.imgURI}
+  109:               addressBorrower={sharetalk.address}
+  110:               itemName={sharetalk.itemName}
+  111:               location={sharetalk.location}
+  112:               description={sharetalk.description}
+  113:               collateralDeposits={sharetalk.collateralDeposits}
+  114:               loanDuration={sharetalk.loanDuration}
+  115              />
+
+src/pages/Lendingpage.jsx:
+   62            </ListItem>
+   63:           <ListItem button color="#dddfd4" component={Link} to="/lend/sharetalk">
+   64              <ListItemText
+
+  148                <LendSections title="crypto" selected Icon={<PaidIcon />} />
+  149:               <LendSections title="sharetalk" Icon={<HomeIcon />} />
+  150                <LendSections title="phone" Icon={<CableIcon />} />

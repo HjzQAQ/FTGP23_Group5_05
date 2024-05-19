@@ -51,10 +51,10 @@ const Homepage = () => {
             }}
           >
             <Typography variant="h2" align="center" gutterBottom color="#173e43">
-              A Blockchain Loan Lending Decentralized Application
+              Share and lend everything you do not need temporarily
             </Typography>
             <Typography variant="h6" align="center" gutterBottom color="gray">
-              Borrow and Lend loans on the blockchain while earning interest of upto 50%.
+              A platform for cryptocurrency lending and renting out idle items.
             </Typography>
             <Box
               mt={3}

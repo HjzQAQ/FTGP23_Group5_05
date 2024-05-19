@@ -9,7 +9,7 @@ import PayOffpage from './pages/PayOffpage';
 import MarketsPage from './pages/MarketsPage';
 import LendingTable from './components/LendingTable';
 import Household from './components/Household';
-import Mortgage from './components/Mortgage';
+import Sharetalk from './components/Sharetalk';
 import Automotive from './components/Automotive';
 import Gardening from './components/Gardening';
 import Electronics from './components/Electronics';
@@ -25,7 +25,7 @@ function App() {
         <Route path="/borrow" element={<Borrowpage />} />
         <Route path="/lend" element={<Lendingpage />}>
           <Route path="crypto" element={<LendingTable />} />
-          <Route path="mortgage" element={<Mortgage />} />
+          <Route path="sharetalk" element={<Sharetalk />} />
           <Route path="electronics" element={<Electronics />} />
           <Route path="automotive" element={<Automotive />} />
           <Route path="gardening" element={<Gardening />} />

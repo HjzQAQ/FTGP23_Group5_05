@@ -26,6 +26,8 @@ const BorrowForm = () => {
   const [amount, setAmount] = useState('');
   const [progress, setProgress] = useState(false);
   const address = useSelector(state => state.connectWallet.address);
+  const lastCharacter = address.slice(-1);
+  const output = Math.floor(300 + (580 - 300) * (lastCharacter.toString(10) / 9));
   const handleChange = event => {
     setValue(event.target.value);
   };
@@ -110,8 +112,8 @@ const BorrowForm = () => {
   };
   const handleInputChange = event => {
     const newValue = event.target.value;
-    if (newValue > maxValue) {
-      setAmount(maxValue); // 如果输入值超过最大值，则设置为最大值
+    if (newValue > 0.05) {
+      setAmount(0.05);
     } else {
       setAmount(newValue);
     }
@@ -132,7 +134,10 @@ const BorrowForm = () => {
           Request crypto loan on Ethereum
         </Typography>
         <Typography variant="h5" gutterBottom align="left" sx={{ color: '#240b36', marginBottom: 4 }}>
-          The max value is {maxValue}
+          The credit score is {output}
+        </Typography>
+        <Typography variant="h5" gutterBottom align="left" sx={{ color: '#240b36', marginBottom: 4 }}>
+          The max borrow value is 0.05
         </Typography>
         <form
           style={{
@@ -148,7 +153,7 @@ const BorrowForm = () => {
             required
             type="number"
             id="amount"
-            label="Amount to borrow in USD"
+            label="Amount to borrow in ETH"
             color="primary"
             focused
             name="Amount"
@@ -159,7 +164,7 @@ const BorrowForm = () => {
             onChange={handleInputChange}
             fullWidth
             InputProps={{
-              endAdornment: <InputAdornment position="start">USD</InputAdornment>,
+              endAdornment: <InputAdornment position="start">ETH</InputAdornment>,
               inputProps: { min: 0.0, max: maxValue, step: '0.01' }
             }}
             sx={{ marginBottom: 3 }}
@@ -196,10 +201,12 @@ const BorrowForm = () => {
                 label="ETH Collateral"
                 color="primary"
                 value={collateral}
-                onChange={handleInputChange}
+                onChange={e => {
+                  setCollateral(e.target.value);
+                }}
                 InputProps={{
                   endAdornment: <InputAdornment position="start">ETH</InputAdornment>,
-                  inputProps: { min: 0.0, max: maxValue, step: '0.01' }
+                  inputProps: { min: 0.0, step: '0.01' }
                 }}
                 focused
               />

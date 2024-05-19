@@ -50,11 +50,11 @@ const PayOffpage = () => {
       >
         {addressInfo.length === 0 ? (
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-            <Box sx={{ width: '300px', backgroundColor: 'black', padding: 10, borderRadius: '30px' }}>
-              <Typography sx={{ color: 'white' }} gutterBottom variant="h2">
+            <Box sx={{ width: '300px', backgroundColor: '#173e43', padding: 10, borderRadius: '30px' }}>
+              {/* <Typography sx={{ color: 'white' }} gutterBottom variant="h2">
                 Error!!
-              </Typography>
-              <Typography sx={{ color: 'gray' }} variant="h6">
+              </Typography> */}
+              <Typography sx={{ color: '#dddfd4' }} variant="h6">
                 {error}
               </Typography>
             </Box>

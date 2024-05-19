@@ -4,11 +4,11 @@ import LendSections from '../components/LendSections';
 import Navbar from '../components/Navbar';
 import PaidIcon from '@mui/icons-material/Paid';
 import HomeIcon from '@mui/icons-material/Home';
-// import CarRentalIcon from '@mui/icons-material/CarRental';
-// import CableIcon from '@mui/icons-material/Cable';
-// import YardIcon from '@mui/icons-material/Yard';
-// import BedroomParentIcon from '@mui/icons-material/BedroomParent';
-// import CreditCardIcon from '@mui/icons-material/CreditCard';
+import CarRentalIcon from '@mui/icons-material/CarRental';
+import CableIcon from '@mui/icons-material/Cable';
+import YardIcon from '@mui/icons-material/Yard';
+import BedroomParentIcon from '@mui/icons-material/BedroomParent';
+import CreditCardIcon from '@mui/icons-material/CreditCard';
 import { Outlet } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -60,27 +60,27 @@ const Lendingpage = () => {
               Crypto
             </ListItemText>
           </ListItem>
-          <ListItem button color="#dddfd4" component={Link} to="/lend/mortgage">
+          <ListItem button color="#dddfd4" component={Link} to="/lend/sharetalk">
             <ListItemText
               onClick={event => {
                 setCategory(event.target.innerText);
                 setIsActive(false);
               }}
             >
-              Mortgage
+              ShareTalk
             </ListItemText>
           </ListItem>
-          {/* <ListItem button color="primary" component={Link} to="/lend/electronics">
+          <ListItem button color="primary" component={Link} to="/lend/sharetalk">
             <ListItemText
               onClick={event => {
                 setCategory(event.target.innerText);
                 setIsActive(false);
               }}
             >
-              Electronics
+              Portfolio
             </ListItemText>
           </ListItem>
-          <ListItem button color="primary" component={Link} to="/lend/automotive">
+          <ListItem button color="primary" component={Link} to="/lend/sharetalk">
             <ListItemText
               //ref={dropdownRef}
               onClick={event => {
@@ -91,7 +91,7 @@ const Lendingpage = () => {
               Automotive
             </ListItemText>
           </ListItem>
-          <ListItem button color="primary" component={Link} to="/lend/gardening">
+          <ListItem button color="primary" component={Link} to="/lend/sharetalk">
             <ListItemText
               //ref={dropdownRef}
               onClick={event => {
@@ -102,7 +102,7 @@ const Lendingpage = () => {
               Gardening
             </ListItemText>
           </ListItem>
-          <ListItem button color="primary" component={Link} to="/lend/CountryFinancialAid">
+          <ListItem button color="primary" component={Link} to="/lend/sharetalk">
             <ListItemText
               //ref={dropdownRef}
               onClick={event => {
@@ -113,7 +113,7 @@ const Lendingpage = () => {
               Country Financial Aid
             </ListItemText>
           </ListItem>
-          <ListItem button color="primary" component={Link} to="/lend/household">
+          <ListItem button color="primary" component={Link} to="/lend/sharetalk">
             <ListItemText
               //ref={dropdownRef}
               onClick={event => {
@@ -123,7 +123,7 @@ const Lendingpage = () => {
             >
               Household
             </ListItemText>
-          </ListItem> */}
+          </ListItem>
         </List>
       </Hidden>
       <div
@@ -146,12 +146,11 @@ const Lendingpage = () => {
           >
             <Box sx={{ justifyContent: 'space-between', height: '100%', marginTop: 'auto' }}>
               <LendSections title="crypto" selected Icon={<PaidIcon />} />
-              <LendSections title="mortgage" Icon={<HomeIcon />} />
-              {/* <LendSections title="electronics" Icon={<CableIcon />} />
-              <LendSections title="automotive" Icon={<CarRentalIcon />} />
-              <LendSections title="gardening" Icon={<YardIcon />} />
-              <LendSections title="CountryFinancialAid" Icon={<CreditCardIcon />} />
-              <LendSections title="household" Icon={<BedroomParentIcon />} /> */}
+              <LendSections title="sharetalk" Icon={<HomeIcon />} />
+              <LendSections title="portfolio" Icon={<CableIcon />} />
+              <LendSections title="AI-power" Icon={<CarRentalIcon />} />
+              <LendSections title="PersonalCreditScore" Icon={<YardIcon />} />
+              <LendSections title="NFT" Icon={<CreditCardIcon />} />
             </Box>
           </section>
         </Hidden>

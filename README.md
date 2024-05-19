@@ -1,33 +1,5 @@
 # Loan Lending Decentralized Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [Hardhat](https://hardhat.org/).
-
-## Features and Interfaces
-
-### LoginPage
-
-![LoginPage](/src/assets/Loginpage.png)
-
-### HomePage
-
-![HomePage](/src/assets/HomePage.png)
-
-### LendingPage
-
-![LendingPage](</src/assets/LendingPage%20(1).png>)
-
-### MortgageLendingPage
-
-![MortgageLendingPage](/src/assets/2022-06-06.png)
-
-### BorrowingPage
-
-![BorrowingPage](/src/assets/BorrowPage.png)
-
-### PayOutPage
-
-![PayOutPage](/src/assets/PayoutPage.png)
-
 ## Tech Stack/ Tooling
 
 JavaScript(React JS), Redux Toolkit, Material UI, Blockchain, Hardhat, Solidity, ChainLink, IPFS

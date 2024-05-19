@@ -6,7 +6,7 @@ import { ethers } from 'ethers';
 import { LOANLENDING_CONTRACT_ADDRESS, abi } from '../constants';
 import EmptyImage from '../assets/empty.png';
 
-const Mortgage = () => {
+const Sharetalk = () => {
   const address = useSelector(state => state.connectWallet.address);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const contract = new ethers.Contract(LOANLENDING_CONTRACT_ADDRESS, abi, provider.getSigner(address));
@@ -90,14 +90,14 @@ const Mortgage = () => {
       }}
     >
       {allMortgageData.length != 0 ? (
-        allMortgageData.map(mortgage => (
+        allMortgageData.map(sharetalk => (
           <Grid
             item
             xs={12}
             sm={6}
             md={6}
             lg={6}
-            key={mortgage.address}
+            key={sharetalk.address}
             sx={
               {
                 //display: 'flex'
@@ -105,13 +105,13 @@ const Mortgage = () => {
             }
           >
             <Item
-              img={mortgage.imgURI}
-              addressBorrower={mortgage.address}
-              itemName={mortgage.itemName}
-              location={mortgage.location}
-              description={mortgage.description}
-              collateralDeposits={mortgage.collateralDeposits}
-              loanDuration={mortgage.loanDuration}
+              img={sharetalk.imgURI}
+              addressBorrower={sharetalk.address}
+              itemName={sharetalk.itemName}
+              location={sharetalk.location}
+              description={sharetalk.description}
+              collateralDeposits={sharetalk.collateralDeposits}
+              loanDuration={sharetalk.loanDuration}
             />
           </Grid>
         ))
@@ -136,4 +136,4 @@ const Mortgage = () => {
   );
 };
 
-export default Mortgage;
+export default Sharetalk;

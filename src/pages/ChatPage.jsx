@@ -75,7 +75,7 @@ const ChatPage = () => {
             <div
               key={index}
               style={{
-                backgroundColor: 'black',
+                backgroundColor: '#173e43',
                 borderRadius: '10px',
                 color: 'white',
                 textAlign: 'left',

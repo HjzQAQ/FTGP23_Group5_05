@@ -60,19 +60,19 @@ const Item = ({ img, addressBorrower, itemName, location, description, collatera
               >
                 Chat
               </Button>
-              {addressBorrower.toUpperCase() != address.toUpperCase() && (
+              {/* {addressBorrower.toUpperCase() != address.toUpperCase() && (
                 <Button variant="contained" sx={{ marginLeft: 2 }}>
                   Lend
                 </Button>
-              )}
+              )} */}
 
-              {addressBorrower.toUpperCase() === address.toUpperCase() && (
+              {/* {addressBorrower.toUpperCase() === address.toUpperCase() && (
                 <Button variant="contained" sx={{ marginLeft: 2 }}>
                   Agree
                 </Button>
-              )}
+              )} */}
             </Box>
-            <div style={{ display: 'flex', alignItems: 'center' }} className={classes.bottomButtons}>
+            {/* <div style={{ display: 'flex', alignItems: 'center' }} className={classes.bottomButtons}>
               <Button variant="contained" sx={{ borderRadius: '80px', backgroundColor: '#240b36' }}>
                 +
               </Button>
@@ -80,7 +80,7 @@ const Item = ({ img, addressBorrower, itemName, location, description, collatera
               <Button variant="contained" sx={{ borderRadius: '80px', backgroundColor: '#240b36' }}>
                 -
               </Button>
-            </div>
+            </div> */}
           </div>
         </CardContent>
       </Card>

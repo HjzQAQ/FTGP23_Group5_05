@@ -30,7 +30,7 @@ const Borrowpage = () => {
             sx={{ fontWeight: 700, color: '#11131E33', '&.Mui-selected': { color: '#254043' } }}
           />
           <Tab
-            label="Borrow Item"
+            label="Share Talk"
             value="2"
             sx={{ fontWeight: 700, color: '#11131E33', '&.Mui-selected': { color: '#254043' } }}
           />

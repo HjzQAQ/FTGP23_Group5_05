@@ -1,0 +1,41 @@
+# Query: Mortgage
+# Flags: CaseSensitive WordMatch
+# ContextLines: 1
+
+11 results - 5 files
+
+backend/contracts/LoanLending.sol:
+  117  require(msg.value >= _collateral,'The amount of collateral is not enough');
+  118: if(keccak256(abi.encodePacked(_category))==keccak256(abi.encodePacked('Sharetalk'))){
+  119  itemBorrower[_address].collateralDeposits += msg.value;
+
+src/App.js:
+  11  import Household from './components/Household';
+  12: import Sharetalk from './components/Sharetalk';
+  13  import Automotive from './components/Automotive';
+
+  27            <Route path="crypto" element={<LendingTable />} />
+  28:           <Route path="mortgage" element={<Sharetalk />} />
+  29            <Route path="electronics" element={<Electronics />} />
+
+src/components/BorrowItem.jsx:
+  133              <Select sx={{ width: '100%' }} labelId="category" label="Category" value={category} onChange={handleChange}>
+  134:               <MenuItem value="Sharetalk">Phone</MenuItem>
+  135:               <MenuItem value="Sharetalk">House</MenuItem>
+  136:               <MenuItem value="Sharetalk">Book</MenuItem>
+  137:               <MenuItem value="Sharetalk">Camera</MenuItem>
+  138              </Select>
+
+src/components/Mortgage.jsx:
+    8  
+    9: const Sharetalk = () => {
+   10    const address = useSelector(state => state.connectWallet.address);
+
+  138  
+  139: export default Sharetalk;
+  140  
+
+src/pages/Lendingpage.jsx:
+  69              >
+  70:               Sharetalk
+  71              </ListItemText>
