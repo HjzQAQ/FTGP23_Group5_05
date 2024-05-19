@@ -161,7 +161,9 @@ const BorrowForm = () => {
             // onChange={e => {
             //   setAmount(e.target.value);
             // }}
-            onChange={handleInputChange}
+            onChange={e => {
+              setAmount(e.target.value);
+            }}
             fullWidth
             InputProps={{
               endAdornment: <InputAdornment position="start">ETH</InputAdornment>,

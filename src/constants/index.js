@@ -926,4 +926,8 @@ export const abi = [
     type: 'function'
   }
 ];
+<<<<<<< HEAD
 export const LOANLENDING_CONTRACT_ADDRESS = '0x04efC754cA29568E198A9E51E0cAFC0576613a23';
+=======
+export const LOANLENDING_CONTRACT_ADDRESS = '0xD7A21734435c1c98d15382554143CBE52278bf23';
+>>>>>>> 563961b8d5ab0f6adeea167eb3ce446f05775e08

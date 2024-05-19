@@ -88,8 +88,13 @@ const BorrowItem = () => {
       const formData = new FormData();
       formData.append('file', file);
 
+<<<<<<< HEAD
       const pinataApiKey = '7ad02b6efa42d67175e3';
       const pinataSecretApiKey = '73427070e45db250c81b38bdfcd10cfe2626993ee6981526a3bd94a6b4b0c5b9';
+=======
+      const pinataApiKey = 'b8c2f1ed011f067912cb';
+      const pinataSecretApiKey = 'df147a43688a9a392b59e6a2bb880d0b631d3f9ab1f9155decc09607c8b323ca';
+>>>>>>> 563961b8d5ab0f6adeea167eb3ce446f05775e08
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
 
       const response = await axios.post(url, formData, {
