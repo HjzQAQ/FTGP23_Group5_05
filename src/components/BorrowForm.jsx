@@ -27,7 +27,8 @@ const BorrowForm = () => {
   const [progress, setProgress] = useState(false);
   const address = useSelector(state => state.connectWallet.address);
   const lastCharacter = address.slice(-1);
-  const output = Math.floor(300 + (580 - 300) * (lastCharacter.toString(10) / 9));
+  const lastCharacterDecimal = parseInt(lastCharacter, 16);
+  const output = Math.floor(300 + (580 - 300) * (lastCharacterDecimal / 15));
   const handleChange = event => {
     setValue(event.target.value);
   };
