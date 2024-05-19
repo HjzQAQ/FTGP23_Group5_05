@@ -88,8 +88,8 @@ const BorrowItem = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const pinataApiKey = '7ad02b6efa42d67175e3';
-      const pinataSecretApiKey = '73427070e45db250c81b38bdfcd10cfe2626993ee6981526a3bd94a6b4b0c5b9';
+      const pinataApiKey = '3414ec57cc454d6edd0f';
+      const pinataSecretApiKey = '12bf200144428a26fe1382cd0414d28fa95bddd59367679382c8e460266619bb';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
 
       const response = await axios.post(url, formData, {
@@ -116,7 +116,7 @@ const BorrowItem = () => {
     >
       <Box sx={{ width: '100%', marginTop: 5 }}>
         <Typography variant="h3" gutterBottom align="center" sx={{ color: '#240b36', marginBottom: 4 }}>
-          Share Talk release
+          Borrow an item on Ethereum
         </Typography>
         <form
           style={{
@@ -131,10 +131,12 @@ const BorrowItem = () => {
           <FormControl fullWidth sx={{ marginBottom: 3 }} color="primary" focused>
             <InputLabel id="docket">Category</InputLabel>
             <Select sx={{ width: '100%' }} labelId="category" label="Category" value={category} onChange={handleChange}>
-              <MenuItem value="Sharetalk">Phone</MenuItem>
-              <MenuItem value="Sharetalk">House</MenuItem>
-              <MenuItem value="Sharetalk">Book</MenuItem>
-              <MenuItem value="Sharetalk">Camera</MenuItem>
+              <MenuItem value="Mortgage">Mortgage</MenuItem>
+              <MenuItem value="Electronics">Electronics</MenuItem>
+              <MenuItem value="Automotive">Automotive</MenuItem>
+              <MenuItem value="Gardening">Gardening</MenuItem>
+              <MenuItem value="Country Financial Aid">Country Financial Aid</MenuItem>
+              <MenuItem value="Household">Household</MenuItem>
             </Select>
           </FormControl>
           <TextField
@@ -199,7 +201,7 @@ const BorrowItem = () => {
             required
             type="number"
             id="standard-multiline-static"
-            label="Pay for the talk"
+            label="ETH Collateral"
             color="primary"
             value={collateral}
             onChange={e => {
