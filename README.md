@@ -11,11 +11,11 @@
  
 ## User Interface
 
-![User Interface](images/fig1.png)
+![User Interface](image/fig1.png)
 
 ## DApp Process Flow
 
-![DApp Process Flow](images/fig2.png)
+![DApp Process Flow](image/fig2.png)
 
 
 ## Project Scripts
