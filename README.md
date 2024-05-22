@@ -8,6 +8,15 @@
   - Solidity
   - ChainLink
   - IPFS
+ 
+## User Interface
+
+![User Interface](images/fig1.png)
+
+## DApp Process Flow
+
+![DApp Process Flow](images/fig2.png)
+
 
 ## Project Scripts
 
