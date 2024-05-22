@@ -13,9 +13,7 @@
 
 ![User Interface](image/Fig1.jpg)
 
-## DApp Process Flow
 
-![DApp Process Flow](image/Fig2.jpg)
 
 
 ## Project Scripts
@@ -56,3 +54,8 @@ After deployment, copy the contract address and ABI (update the ABI in `src/cons
 ## Important Points
 1. Create a `.env` file in `defilendingdappbackend` to store your private key and Alchemy API key URL.
 2. Ensure your ABI file and deployed smart contract address are correctly referenced in the `src/constants/index.js` file on the frontend.
+
+
+## DApp Process Flow
+
+![DApp Process Flow](image/Fig2.jpg)
