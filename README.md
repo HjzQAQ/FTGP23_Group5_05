@@ -1,41 +1,49 @@
-## Tech Stack/ Tooling
+## Tech Stack / Tooling
 
-JavaScript(React JS), Redux Toolkit, Material UI, Blockchain, Hardhat, Solidity, ChainLink, IPFS
+- JavaScript (React JS)
+- Redux Toolkit
+- Material UI
+- Blockchain Technologies:
+  - Hardhat
+  - Solidity
+  - ChainLink
+  - IPFS
 
 ## Project Scripts
 
-In the project directory, you can run the following:
+In the project directory, you can execute the following commands:
 
-First step:
-在 ./FTGP23_Group5_05 终端目录下运行, npm start
+### First step:
 
-### `npm start`
+In the terminal directory `./FTGP23_Group5_05`, run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-首先在 defilendingdappbackend 添加.env 文件加上 ALCHEMY_API_KEY_URL 和 SEPOLIA_PRIVATE_KEY
+This command runs the app in development mode. Open (https://ftgp-23-group5-05.vercel.app/) to view it in your browser. The page will automatically reload if you make changes. You might also see lint errors in the console.
 
-Second step: 在 FTGP23_Group5_05/defilendingdappbackend 终端目录下运行 npx hardhat compile
+Before starting, ensure that the `.env` file is added in the `defilendingdappbackend` directory with the keys `ALCHEMY_API_KEY_URL` and `SEPOLIA_PRIVATE_KEY`.
 
-### `npx hardhat compile`
+### Second step:
+In the terminal directory `FTGP23_Group5_05/defilendingdappbackend`, run:
 
-Compiles the solidity code.
+```bash
+npx hardhat compile
 
-Third step:
+This command compiles the Solidity code.
 
-### `npx hardhat run scripts/deploy.js --network sepolia`
+### Third step:
+In the terminal directory `FTGP23_Group5_05/defilendingdappbackend`, run:
 
-在 FTGP23_Group5_05/defilendingdappbackend 终端目录下运行，`npx hardhat run scripts/deploy.js --network sepolia`
-Deploys the smart contract to the sepolia Test Network
+```bash
+npx hardhat run scripts/deploy.js --network sepolia
 
-Forth step:
-将合约地址和 abi 赋值给（如果合约没改就不用改 abi）src/constants/index.js
+This command deploys the smart contract to the Sepolia Test Network.
 
-## Point to Note
+### Fourth step:
+After deployment, copy the contract address and ABI (update the ABI in `src/constants/index.js` only if the contract has changed).
 
-1. Create a .env file that will store your private key and your Alchemy api key url.
-2. Copy your ABI file and your deployed smart contract address and in the index.js file on the frontend.
+## Important Points
+1. Create a `.env` file in `defilendingdappbackend` to store your private key and Alchemy API key URL.
+2. Ensure your ABI file and deployed smart contract address are correctly referenced in the `src/constants/index.js` file on the frontend.
