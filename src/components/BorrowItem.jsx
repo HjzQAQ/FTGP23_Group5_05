@@ -201,7 +201,7 @@ const BorrowItem = () => {
             required
             type="number"
             id="standard-multiline-static"
-            label="ETH Collateral"
+            label="Pay for Share Talk"
             color="primary"
             value={collateral}
             onChange={e => {
