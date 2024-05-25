@@ -87,9 +87,11 @@ const BorrowItem = () => {
     try {
       const formData = new FormData();
       formData.append('file', file);
+
       const pinataApiKey = '3414ec57cc454d6edd0f';
       const pinataSecretApiKey = '12bf200144428a26fe1382cd0414d28fa95bddd59367679382c8e460266619bb';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
+
       const response = await axios.post(url, formData, {
         maxBodyLength: 'Infinity', // 这是处理大文件的配置
         headers: {
@@ -106,7 +108,6 @@ const BorrowItem = () => {
       console.error('Error uploading file to Pinata:', err);
     }
   };
-
 
   return (
     <Container
