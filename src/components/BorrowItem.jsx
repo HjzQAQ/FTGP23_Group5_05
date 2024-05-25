@@ -88,12 +88,12 @@ const BorrowItem = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const pinataApiKey = 'd5348213916c460edefa';
-      const pinataSecretApiKey = '4231c1d6092de44f2358e637c88dbc587ed1b93438343fee2572bcb080c54f07';
+      const pinataApiKey = '0c6c7dd15089a253e500';
+      const pinataSecretApiKey = '70af1ec0b18bf16cfed5965644ee397bf1b3a1730c964bd7d3949d90a2b6063d';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
 
       const response = await axios.post(url, formData, {
-        maxBodyLength: 'Infinity', // 
+        maxBodyLength: 'Infinity', // this
         headers: {
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
           pinata_api_key: pinataApiKey,
