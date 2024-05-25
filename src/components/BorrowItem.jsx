@@ -88,12 +88,12 @@ const BorrowItem = () => {
       const formData = new FormData();
       formData.append('file', file);
 
-      const pinataApiKey = '3414ec57cc454d6edd0f';
-      const pinataSecretApiKey = '12bf200144428a26fe1382cd0414d28fa95bddd59367679382c8e460266619bb';
+      const pinataApiKey = 'd5348213916c460edefa';
+      const pinataSecretApiKey = '4231c1d6092de44f2358e637c88dbc587ed1b93438343fee2572bcb080c54f07';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
 
       const response = await axios.post(url, formData, {
-        maxBodyLength: 'Infinity', // 这是处理大文件的配置
+        maxBodyLength: 'Infinity', // 
         headers: {
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
           pinata_api_key: pinataApiKey,
