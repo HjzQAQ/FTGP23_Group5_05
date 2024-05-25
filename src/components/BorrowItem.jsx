@@ -82,28 +82,28 @@ const BorrowItem = () => {
   //     console.error(err);
   //   }
   // };
-  const onChange = async (e) => {
+  const onChange = async e => {
     const file = e.target.files[0];
     try {
       const formData = new FormData();
       formData.append('file', file);
-  
-      const pinataApiKey = 'd5348213916c460edefa';
-      const pinataSecretApiKey = '4231c1d6092de44f2358e637c88dbc587ed1b93438343fee2572bcb080c54f07';
+      const pinataApiKey = '3414ec57cc454d6edd0f';
+      const pinataSecretApiKey = '12bf200144428a26fe1382cd0414d28fa95bddd59367679382c8e460266619bb';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
-  
       const response = await axios.post(url, formData, {
-        maxBodyLength: Infinity, 
+        maxBodyLength: 'Infinity', // 这是处理大文件的配置
         headers: {
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
           pinata_api_key: pinataApiKey,
-          pinata_secret_api_key: pinataSecretApiKey,
-        },
+          pinata_secret_api_key: pinataSecretApiKey
+        }
       });
-  
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error uploading file to IPFS', error);
+      if (response.status === 200) {
+        const ipfsUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+        updateFileUrl(ipfsUrl);
+      }
+    } catch (err) {
+      console.error('Error uploading file to Pinata:', err);
     }
   };
 
