@@ -82,32 +82,31 @@ const BorrowItem = () => {
   //     console.error(err);
   //   }
   // };
-  const onChange = async e => {
+  const onChange = async (e) => {
     const file = e.target.files[0];
     try {
       const formData = new FormData();
       formData.append('file', file);
-
+  
       const pinataApiKey = 'd5348213916c460edefa';
       const pinataSecretApiKey = '4231c1d6092de44f2358e637c88dbc587ed1b93438343fee2572bcb080c54f07';
       const url = 'https://api.pinata.cloud/pinning/pinFileToIPFS';
-
+  
       const response = await axios.post(url, formData, {
-        maxBodyLength: 'Infinity', 
+        maxBodyLength: Infinity, 
         headers: {
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
           pinata_api_key: pinataApiKey,
-          pinata_secret_api_key: pinataSecretApiKey
-        }
+          pinata_secret_api_key: pinataSecretApiKey,
+        },
       });
-      if (response.status === 200) {
-        const ipfsUrl = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
-        updateFileUrl(ipfsUrl);
-      }
-    } catch (err) {
-      console.error('Error uploading file to Pinata:', err);
+  
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error uploading file to IPFS', error);
     }
   };
+
 
   return (
     <Container
