@@ -17,9 +17,13 @@
 
 ![User Interface](image/Fig1.jpg)
 
+## Vercel
+The application is deployed on Vercel. You can access the live site here: [https://ftgp-23-group5-05.vercel.app/](https://ftgp-23-group5-05.vercel.app/)
+
 ## Important Points
 1. Create a `.env` file in `defilendingdappbackend` to store your private key and Alchemy API key URL.
 2. Ensure your ABI file and the deployed smart contract address (`0x9942AccE4476C3cB462Ba3f23D9424eD85937512`) are correctly referenced in the `src/constants/index.js` file on the frontend.
+
 
 ## Project Scripts
 
