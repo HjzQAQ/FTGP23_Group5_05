@@ -9,18 +9,13 @@
   - ChainLink
   - IPFS
 
-
 ## DApp Process Flow
 
 ![DApp Process Flow](image/Fig2.jpg)
 
-
 ## User Interface
 
 ![User Interface](image/Fig1.jpg)
-
-
-
 
 ## Project Scripts
 
@@ -32,32 +27,25 @@ In the terminal directory `./FTGP23_Group5_05`, run:
 
 ```bash
 npm start
-
-
-This command runs the app in development mode. Open (https://ftgp-23-group5-05.vercel.app/) to view it in your browser. The page will automatically reload if you make changes. You might also see lint errors in the console.
-
-Before starting, ensure that the `.env` file is added in the `defilendingdappbackend` directory with the keys `ALCHEMY_API_KEY_URL` and `SEPOLIA_PRIVATE_KEY`.
-
-### Second step:
-In the terminal directory `FTGP23_Group5_05/defilendingdappbackend`, run:
-
 ```bash
-npx hardhat compile
 
-This command compiles the Solidity code.
+This command compiles the Solidity code from `LoanLending.sol`. Note that only this file is required for the main application. The file `Loanlendingdraftfuture.sol` is a draft and does not need to be compiled or run.
+
+
 
 ### Third step:
-In the terminal directory `FTGP23_Group5_05/defilendingdappbackend`, run:
+In the terminal directory `FTGP23_Group5_05/backend`, run:
 
-```bash
+
 npx hardhat run scripts/deploy.js --network sepolia
 
 This command deploys the smart contract to the Sepolia Test Network.
 
 ### Fourth step:
-After deployment, copy the contract address and ABI (update the ABI in `src/constants/index.js` only if the contract has changed).
+After deployment, copy the contract address and ABI. Update the ABI in `src/constants/index.js` only if the contract has changed. The deployed contract address is `0x9942AccE4476C3cB462Ba3f23D9424eD85937512`.
 
 ## Important Points
 1. Create a `.env` file in `defilendingdappbackend` to store your private key and Alchemy API key URL.
-2. Ensure your ABI file and deployed smart contract address are correctly referenced in the `src/constants/index.js` file on the frontend.
+2. Ensure your ABI file and the deployed smart contract address (`0x9942AccE4476C3cB462Ba3f23D9424eD85937512`) are correctly referenced in the `src/constants/index.js` file on the frontend.
 
+This provides a complete guide on how to compile and deploy your Solidity contracts as part of your DApp project.
